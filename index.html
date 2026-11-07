@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>A Magical Birthday for Dua</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-container"></div>
+    <div class="balloon-layer" id="balloonLayer"></div>
+    <div class="lantern-layer" id="lanternLayer"></div>
+
+    <audio id="backgroundMusic" loop preload="auto">
+        <source src="magical_music.mp3" type="audio/mpeg">
+        <source src="https://assets.mixkit.co/music/preview/mixkit-happy-party-152.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="voiceMessage" preload="auto" src="voice_message.mp3"></audio>
+
+    <!-- STEP 1: GIFT -->
+    <div class="step active" id="step1">
+        <div class="gift-container" id="giftContainer">
+            <div class="gift-box">
+                <div class="gift-lid"></div>
+                <div class="gift-bow"></div>
+            </div>
+            <p class="instruction-text">A surprise is waiting...</p>
+        </div>
+    </div>
+
+    <!-- STEP 2: KEY -->
+    <div class="step" id="step2">
+        <div class="key-container" id="keyContainer">
+            <svg id="animatedKey" class="key-svg" viewBox="0 0 100 100">
+                <path d="M60,20 Q50,10 40,20 T20,20 Q10,25 20,30 T40,30 Q50,35 40,40 L40,70 L35,75 L35,80 L40,85 L45,80 L45,75 L40,70" stroke-width="5" stroke-linecap="round" fill="none"/>
+            </svg>
+            <p class="instruction-text">A key to unlock the magic...</p>
+        </div>
+    </div>
+
+    <!-- STEP 3: BOOK -->
+    <div class="step" id="step3">
+        <div class="storybook-container" id="storybookContainer">
+            <div class="book">
+                <div class="book-back"></div>
+                <div class="page" id="page3">
+                    <div class="page-front"><p class="page-text">Keep shining, keep dreaming, keep being the magic you are...</p></div>
+                    <div class="page-back"><p class="page-text">Now let's celebrate YOU. 🎂</p></div>
+                </div>
+                <div class="page" id="page2">
+                    <div class="page-front"><p class="page-text">Every year you grow, you give everyone more reasons to smile...</p></div>
+                    <div class="page-back"><p class="page-text">This year, may every wish you've whispered come true...</p></div>
+                </div>
+                <div class="page" id="page1">
+                    <div class="page-front"><p class="page-text">Dua, you make the world softer just by being in it...</p></div>
+                    <div class="page-back"><p class="page-text">Every smile of yours lights up rooms you don't even notice...</p></div>
+                </div>
+                <div class="book-cover" id="bookCover">
+                    <div class="cover-front"><h2 class="book-title">Your Story</h2></div>
+                    <div class="cover-back"></div>
+                </div>
+            </div>
+        </div>
+        <div class="continue-hint" id="continueHint">Tap anywhere to continue →</div>
+    </div>
+
+    <!-- STEP 4: CAKE (with mic blow detection) -->
+    <div class="step" id="step4">
+        <div class="cake-container">
+            <div class="cake" id="cake">
+                <div class="candles">
+                    <div class="candle"><div class="wick"></div><div class="flame"></div><div class="smoke"></div></div>
+                    <div class="candle"><div class="wick"></div><div class="flame"></div><div class="smoke"></div></div>
+                    <div class="candle"><div class="wick"></div><div class="flame"></div><div class="smoke"></div></div>
+                </div>
+                <div class="cake-layer cake-top"></div>
+                <div class="cake-layer cake-middle"></div>
+                <div class="cake-layer cake-bottom"></div>
+                <div class="cake-plate"></div>
+                <div class="slice-emoji">🍰</div>
+            </div>
+            <p class="instruction-text" id="cakeHint">Blow into your mic or tap the candles 🕯️</p>
+            <button class="mic-btn" id="micBtn">🎤 Enable microphone</button>
+            <div class="mic-level-bar"><div class="mic-level-fill" id="micLevel"></div></div>
+            <p class="mic-hint-small">Blow gently — bar bhare to candles bujh jayengi</p>
+        </div>
+    </div>
+
+    <!-- STEP 5: GALLERY -->
+    <div class="step" id="step5">
+        <div class="gallery-container">
+            <h2 class="gallery-title">Moments I treasure 💖</h2>
+            <div class="gallery" id="gallery"></div>
+            <button class="btn-continue" id="galleryContinue">Next →</button>
+        </div>
+    </div>
+
+    <!-- STEP 6: LETTER -->
+    <div class="step" id="step6">
+        <div class="letter-container">
+            <div class="scroll">
+                <div class="scroll-bar top"></div>
+                <div class="letter-body">
+                    <p class="letter-text" id="letterText"></p>
+                </div>
+                <div class="scroll-bar bottom"></div>
+            </div>
+            <button class="btn-continue" id="letterContinue">One more thing →</button>
+        </div>
+    </div>
+
+    <!-- STEP 7: FINALE -->
+    <div class="step" id="step7">
+        <div class="finale-container">
+            <svg class="constellation-svg" id="constellation" viewBox="0 0 400 220">
+                <defs>
+                    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#fbbf24"/>
+                        <stop offset="50%" stop-color="#ffffff"/>
+                        <stop offset="100%" stop-color="#fbbf24"/>
+                    </linearGradient>
+                </defs>
+                <text x="200" y="140" text-anchor="middle"
+                      font-family="'Playfair Display', serif" font-size="110"
+                      font-weight="700" class="constellation-text">DUA</text>
+            </svg>
+            <div class="finale-card">
+                <h1 class="finale-greeting">Happy Birthday</h1>
+                <h2 class="finale-name">Dua</h2>
+                <p class="finale-wish">You are the constellation of every good thing in my sky. Here's to a year of magic, laughter, and dreams coming true. 🌹</p>
+                <button class="voice-btn" id="voiceBtn" style="display:none">💌 Play my voice message</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
